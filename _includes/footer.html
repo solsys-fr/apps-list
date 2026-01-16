@@ -1,0 +1,29 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+  <div class="wrapper">
+    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p>{{ site.description | escape }}</p>
+      </div>
+      <div class="footer-col">
+        <p>
+          <a href="https://github.com/votre-nom-utilisateur/open-source-gems">Contribuer sur GitHub</a>
+        </p>
+        <p>
+          Propulsé par <a href="https://jekyllrb.com/">Jekyll</a> et GitHub Pages
+        </p>
+      </div>
+    </div>
+    <div class="last-updated">
+        Dernière mise à jour : <span id="footer-last-updated-date">N/A</span>
+    </div>
+  </div>
+  <script>
+    // Un script simple pour afficher une date statique ou la date du jour si non mise à jour par Action
+    document.addEventListener('DOMContentLoaded', function() {
+        // Vous pouvez ajouter une logique pour récupérer la vraie date de mise à jour si elle est exposée par Jekyll
+        document.getElementById('footer-last-updated-date').textContent = new Date().toLocaleDateString('fr-FR');
+    });
+  </script>
+</footer>
