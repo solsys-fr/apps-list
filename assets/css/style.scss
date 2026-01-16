@@ -1,0 +1,83 @@
+---
+# Ne supprimez PAS ces tirets d'en-tête, ils sont importants pour Jekyll
+---
+
+// Importez le thème minima par défaut
+@import "minima";
+
+// Vos variables de couleurs pastel et de style
+$brand-color: #a2d2ff; // Bleu pastel
+$text-color: #333;
+$background-color: #f0f8ff; // Blanc cassé/Bleu très pâle
+$link-color: #8c82ff; // Violet pastel doux
+$hover-color: darken($link-color, 15%);
+$grey-color: #ccc;
+$grey-color-light: #eee;
+$grey-color-dark: #888;
+
+// Surcharge du thème minima avec vos styles
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Open Sans', sans-serif; // Exemple de police moderne
+}
+
+a {
+  color: $link-color;
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+.site-header {
+  border-bottom-color: $grey-color-light;
+  background-color: white; // Ou une autre couleur pastel claire
+}
+
+.site-title {
+  color: $brand-color;
+  &:hover {
+    color: darken($brand-color, 10%);
+  }
+}
+
+.wrapper {
+    max-width: -webkit-calc(960px - (30px * 2));
+    max-width: calc(960px - (30px * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+// Ajoutez ici d'autres styles pour les cartes d'applications, etc.
+// Exemple de style pour une carte d'application (vous devrez créer la structure HTML dans un layout)
+.app-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-5px);
+  }
+  h2 {
+    color: $brand-color;
+    margin-top: 0;
+  }
+  p {
+    color: $text-color;
+  }
+  .learn-more {
+    display: inline-block;
+    background-color: $link-color;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    &:hover {
+      background-color: darken($link-color, 10%);
+    }
+  }
+}
