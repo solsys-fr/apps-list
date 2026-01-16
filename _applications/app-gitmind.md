@@ -17,6 +17,7 @@ GitMind est excellent pour organiser vos idées, faire du brainstorming et colla
 *   Mind-mapping collaboratif
 *   Modèles personnalisables
 *   Exportation dans divers formats
+*   
 
 ## Aperçu
 
