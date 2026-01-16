@@ -1,0 +1,42 @@
+name: Update Markdown Dates
+
+on:
+  push:
+    branches:
+      - main # Déclenche l'action à chaque push sur la branche main
+    paths:
+      - '_applications/**.md' # Ne se déclenche que si un fichier .md dans _applications est modifié
+
+jobs:
+  update-dates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Jetons fournis automatiquement par GitHub Actions
+      
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=today::$(date +'%Y-%m-%d')"
+
+      - name: Update last_updated in modified files
+        run: |
+          # Cherche les fichiers Markdown modifiés, ajoutés ou renommés dans _applications/
+          git diff --name-only --diff-filter=AMR ${{ github.event.before }} ${{ github.sha }} | while read file; do
+            if [[ "$file" == "_applications/"*.md ]]; then
+              echo "Updating last_updated in $file"
+              # Utilise sed pour remplacer la ligne 'last_updated:'
+              # Assurez-vous que la ligne 'last_updated: YYYY-MM-DD' existe dans votre front matter
+              sed -i -E "s/^(last_updated: ).*$/\1${{ steps.date.outputs.today }}/" "$file"
+            fi
+          done
+          
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]" # Nom de l'utilisateur qui fera le commit
+          git config user.email "github-actions[bot]@users.noreply.github.com" # Email du bot
+          git add _applications/ # Ajoute les fichiers modifiés
+          git diff --cached --exit-code || git commit -m "Automated: Update last_updated dates in modified applications" # Commit si des changements existent
+          git push # Pousse les changements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Utilise le jeton GitHub pour l'authentification
