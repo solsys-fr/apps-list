@@ -1,0 +1,29 @@
+# _config.yml
+title: "Open-Source Applications List"
+description: "Une collection d'applications open-source validées et aimées, organisées par solsys.fr."
+url: "https://solsys-fr.github.io" 
+baseurl: "/apps-list" 
+
+# Thème Jekyll utilisé
+theme: minima # Un thème simple et personnalisable pour commencer
+
+# Paramètres de collection pour vos applications
+collections:
+  applications:
+    output: true # Jekyll va créer une page HTML pour chaque application
+    permalink: /apps/:path/ # Permalien pour chaque application (ex: /apps/gitmind.html)
+
+# Paramètres Sass pour la personnalisation des couleurs pastel
+sass:
+  sass_dir: _sass
+  style: compressed # ou expanded
+
+# Exclure des fichiers/dossiers qui ne sont pas nécessaires pour le build Jekyll
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
