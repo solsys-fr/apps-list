@@ -13,6 +13,6 @@ Exemple d'utilisation : {% include app_card.html application=app %}
     <h2>{{ app.title }}</h2>
     <p>{{ app.description | truncatewords: 20 }}</p>
     <span class="app-theme">{{ app.theme }}</span>
-    <a href="{{ app.url }}" class="learn-more">En savoir plus</a>
+    <a href="{{ app.url | relative_url }}" class="learn-more">En savoir plus</a>
     <p class="last-updated-card">Dernière mise à jour : {{ app.last_updated | date: "%Y-%m-%d" }}</p>
 </div>
