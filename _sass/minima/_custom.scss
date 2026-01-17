@@ -74,6 +74,7 @@ a {
       background-color: darken($link-color, 10%);
     }
   }
+}
 
   // Styles supplémentaires pour la structure de la maquette
 
@@ -186,5 +187,36 @@ a {
         margin-top: 1em;
     }
 }
-  
+
+// Styles pour la barre de recherche et de filtre
+.search-filter-bar {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    input[type="text"], select {
+        flex-grow: 1;
+        padding: 0.8em 1em;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        font-size: 1em;
+        &:focus {
+            border-color: lighten($brand-color, 10%);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba($brand-color, 0.2);
+        }
+    }
+
+    select {
+        background-color: white;
+        cursor: pointer;
+    }
 }
