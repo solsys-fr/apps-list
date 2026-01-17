@@ -220,3 +220,75 @@ a {
         cursor: pointer;
     }
 }
+
+// Styles pour les icônes d'applications
+.app-card .app-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden; // Cache le débordement de l'icône si elle est plus grande
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; // Assure que l'image tient dans le cadre
+    }
+}
+
+// Styles pour le placeholder d'icône (si aucune icône n'est fournie)
+.app-icon-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgba(0,0,0,0.3); // Couleur du texte de la première lettre
+    border-radius: 10px; // Arrondit le placeholder
+}
+
+
+// Styles pour la sidebar améliorée
+.sidebar .theme-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // Aligne nom à gauche, compteur à droite
+    gap: 0.5em; // Espace entre icône, nom et compteur
+    
+    .theme-icon {
+        flex-shrink: 0; // Empêche l'icône de rétrécir
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .theme-name {
+        flex-grow: 1; // Le nom prend l'espace disponible
+    }
+    .theme-count {
+        flex-shrink: 0;
+        background-color: lighten($link-color, 35%); // Couleur de fond pour le compteur
+        color: darken($link-color, 15%); // Couleur du texte du compteur
+        padding: 0.2em 0.6em;
+        border-radius: 10px;
+        font-size: 0.75em;
+        font-weight: bold;
+    }
+}
+
+// Style pour le lien de thème actif dans la sidebar
+.sidebar .theme-list li.active a {
+    background-color: lighten($brand-color, 25%); // Fond pour le thème sélectionné
+    color: darken($brand-color, 20%);
+    font-weight: bold;
+}
