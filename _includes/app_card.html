@@ -1,0 +1,18 @@
+{% comment %}
+Ce fichier reçoit un objet 'application' en paramètre.
+Exemple d'utilisation : {% include app_card.html application=app %}
+{% endcomment %}
+
+{% assign app = include.application %}
+
+<div class="app-card">
+    <div class="app-icon">
+        {# Vous pouvez ajouter une logique pour des icônes différentes ici #}
+        <img src="https://via.placeholder.com/60x60.png?text=Icon" alt="{{ app.title }} Icon">
+    </div>
+    <h2>{{ app.title }}</h2>
+    <p>{{ app.description | truncatewords: 20 }}</p>
+    <span class="app-theme">{{ app.theme }}</span>
+    <a href="{{ app.url }}" class="learn-more">En savoir plus</a>
+    <p class="last-updated-card">Dernière mise à jour : {{ app.last_updated | date: "%Y-%m-%d" }}</p>
+</div>
