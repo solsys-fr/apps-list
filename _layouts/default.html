@@ -3,11 +3,16 @@
   {% include head.html %}
   <body>
     {% include header.html %}
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main>
+    <div class="site-main-content-wrapper"> {# Nouveau wrapper pour le contenu principal et la sidebar #}
+        <div class="wrapper main-content">
+            <aside class="sidebar">
+                {% include sidebar.html %} {# Nous allons créer ce fichier ensuite #}
+            </aside>
+            <main class="page-content" aria-label="Content">
+                {{ content }}
+            </main>
+        </div>
+    </div>
     {% include footer.html %}
   </body>
 </html>
