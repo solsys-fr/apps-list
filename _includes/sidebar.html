@@ -1,0 +1,8 @@
+<h3 class="sidebar-heading">Thèmes</h3>
+<ul class="theme-list">
+    <li><a href="{{ '/apps/' | relative_url }}">Toutes les applications</a></li>
+    {% assign sorted_themes = site.applications | map: "theme" | uniq | sort %}
+    {% for theme in sorted_themes %}
+        <li><a href="{{ '/apps/?theme=' | append: theme | url_encode | relative_url }}">{{ theme }} ({{ site.applications | where: "theme", theme | size }})</a></li>
+    {% endfor %}
+</ul>
