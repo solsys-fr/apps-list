@@ -5,6 +5,8 @@ title: Bienvenue sur Open-Source Apps Liste de Solsys
 
 # Bienvenue sur Open-Source Apps List !
 
+{% include hero_illustration.html %}
+
 <div class="search-filter-bar">
     <input type="text" id="searchInput" placeholder="Rechercher des applications..." aria-label="Rechercher des applications">
     <select id="themeFilter" aria-label="Filtrer par thème">
