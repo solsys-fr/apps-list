@@ -9,11 +9,10 @@ title: Bienvenue sur Open-Source Apps Liste de Solsys
 
 <div class="search-filter-bar">
     <div class="search-input-wrapper">
-        <span class="input-icon">🔍</span> {# Icône de loupe #}
+        <span class="input-icon">🔍</span>
         <input type="text" id="searchInput" placeholder="Rechercher des applications..." aria-label="Rechercher des applications">
     </div>
     <div class="theme-filter-wrapper">
-        {# L'icône de flèche pour le select est gérée par le CSS background-image #}
         <select id="themeFilter" aria-label="Filtrer par thème">
             <option value="all">Tous les thèmes</option>
             {% assign sorted_themes = site.applications | map: "theme" | uniq | sort %}
