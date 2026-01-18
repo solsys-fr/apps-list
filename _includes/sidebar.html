@@ -1,7 +1,7 @@
 <h3 class="sidebar-heading">Thèmes</h3>
 <ul class="theme-list">
     <li {% if page.url contains '/apps/' and page.url contains 'theme=all' or page.url == '/apps/' %}class="active"{% endif %}>
-        <a href="{{ '/apps/' | relative_url }}" data-theme="all"> {# AJOUT DE data-theme="all" #}
+        <a href="{{ '/apps/' | relative_url }}" data-theme="all">
             <span class="theme-name">Toutes les applications</span>
             <span class="theme-count">{{ site.applications | size }}</span>
         </a>
@@ -9,9 +9,9 @@
 
     {% assign sorted_themes = site.applications | map: "theme" | uniq | sort %}
     {% for theme in sorted_themes %}
-        {% assign theme_slug = theme | slugify %} {# CRÉATION DU SLUG #}
+        {% assign theme_slug = theme | slugify %}
         <li {% if page.url contains '/apps/' and page.url contains 'theme=' | append: theme_slug %}class="active"{% endif %}>
-            <a href="{{ '/apps/?theme=' | append: theme_slug | relative_url }}" data-theme="{{ theme_slug }}"> {# UTILISE data-theme #}
+            <a href="{{ '/apps/?theme=' | append: theme_slug | relative_url }}" data-theme="{{ theme_slug }}">
                 <span class="theme-icon">
     {% assign theme_icon_path = '/assets/images/icons/themes/' | append: theme_slug | append: '.svg' %}
     {% assign theme_icon_file = site.static_files | where: "path", theme_icon_path | first %}
